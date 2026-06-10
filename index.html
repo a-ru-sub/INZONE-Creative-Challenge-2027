@@ -43,10 +43,6 @@
     --table-hover:rgba(255,255,255,.10);
 }
 
-/* =============================================
-   BODY
-============================================= */
-
 body{
     font-family:
         "Helvetica Neue",
@@ -78,10 +74,6 @@ body{
     background-attachment:fixed;
 }
 
-/* =============================================
-   HERO
-============================================= */
-
 .hero{
     text-align:center;
     padding:80px 0 60px;
@@ -106,7 +98,6 @@ body{
     -webkit-text-fill-color:transparent;
 }
 
-/* hero の p は body の p より暗め（補足テキストなので） */
 .hero p{
     margin-top:20px;
     color:var(--text-low);
@@ -132,10 +123,6 @@ body{
     color:transparent;
     -webkit-text-fill-color:transparent;
 }
-
-/* =============================================
-   SECTION CARD
-============================================= */
 
 .section{
     position:relative;
@@ -190,10 +177,6 @@ body{
     opacity:.85;
 }
 
-/* =============================================
-   HEADINGS
-============================================= */
-
 h2{
     color:var(--text-high);
     font-size:1.75rem;
@@ -204,7 +187,6 @@ h2{
     display:inline-block;
 }
 
-/* 短め固定幅でバランスよく */
 h2::after{
     content:"";
     position:absolute;
@@ -218,10 +200,6 @@ h2::after{
     border-radius:2px;
     transform:skew(-35deg);
 }
-
-/* =============================================
-   TEXT
-============================================= */
 
 p{
     color:var(--text-mid);
@@ -240,19 +218,24 @@ li:last-child{
     margin-bottom:0;
 }
 
-/* =============================================
-   ALERT TEXT
-   ※ li 内の span に使うことでセマンティクスを保持
-============================================= */
-
 .alert-text{
     color:var(--alert);
     font-weight:600;
 }
 
-/* =============================================
-   FORMAT BLOCK
-============================================= */
+.division-label{
+    display:inline-block;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    background:rgba(196,123,255,.12);
+    border:1px solid rgba(196,123,255,.30);
+    border-radius:6px;
+    padding:3px 10px;
+    margin-bottom:14px;
+}
 
 .format-container{
     padding-bottom:18px;
@@ -266,6 +249,18 @@ li:last-child{
     padding:0;
 }
 
+.format-item{
+    padding-bottom:14px;
+    margin-bottom:14px;
+    border-bottom:1px solid rgba(180,140,255,.08);
+}
+
+.format-item:last-child{
+    border:none;
+    margin:0;
+    padding:0;
+}
+
 .format-title{
     color:var(--text-high);
     font-weight:700;
@@ -273,9 +268,54 @@ li:last-child{
     margin-bottom:10px;
 }
 
-/* =============================================
-   SPEC LIST
-============================================= */
+.award-container{
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid var(--border-subtle);
+}
+
+.award-container:last-child{
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.award-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.award-badge-label{
+    font-size:.95rem;
+    font-weight:700;
+    color:var(--text-high);
+}
+
+.award-badge-first{
+    display:inline-block;
+    font-size:.7rem;
+    font-weight:800;
+    letter-spacing:.06em;
+    padding:3px 10px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#7A1AC2,#5A0E8E);
+    border:1px solid rgba(196,123,255,.45);
+    color:#F0EBF8;
+}
+
+.award-badge-division{
+    display:inline-block;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:3px 10px;
+    border-radius:999px;
+    background:rgba(180,140,255,.18);
+    border:1px solid rgba(180,140,255,.35);
+    color:var(--accent);
+}
 
 .spec-list{
     list-style:none;
@@ -298,12 +338,6 @@ li:last-child{
     border-radius:50%;
     opacity:.85;
 }
-
-/* =============================================
-   TABLE
-   ・table-layout:fixed で列幅を安定させる
-   ・th にも transition を追加してホバーを統一
-============================================= */
 
 table{
     width:100%;
@@ -328,7 +362,7 @@ td{
     width:70%;
     padding:14px 16px;
     background:var(--table-cell);
-    color:var(--text-mid);
+    color:var(--text-high);
     font-size:.9rem;
     border:1px solid var(--border-subtle);
     transition:background .15s ease;
@@ -353,9 +387,98 @@ tr:last-child  td:last-child { border-radius:0 0 8px 0; }
     font-weight:700;
 }
 
+.award-example{
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid var(--border-subtle);
+}
+
+.award-example img{
+    width:100%;
+    max-width:360px;
+    display:block;
+    margin:0 auto;
+    border-radius:12px 12px 0 0;
+}
+
+.award-example-caption{
+    padding:10px 14px;
+    font-size:.78rem;
+    color:var(--text-low);
+    background:rgba(255,255,255,.04);
+    border-top:1px solid var(--border-subtle);
+    border-radius:0 0 12px 12px;
+}
+
 /* =============================================
-   SCROLLBAR
+   STEP LIST
 ============================================= */
+
+.step-list{
+    list-style:none;
+    padding-left:0;
+    counter-reset:step;
+}
+
+.step-list li{
+    position:relative;
+    padding-left:44px;
+    padding-bottom:14px;
+    margin-bottom:0;
+    color:var(--text-high);
+    counter-increment:step;
+}
+
+.step-list li::before{
+    content:counter(step);
+    position:absolute;
+    left:0;
+    top:1px;
+    width:28px;
+    height:28px;
+    background:linear-gradient(135deg,var(--primary-bright),var(--primary-mid));
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.75rem;
+    font-weight:800;
+    color:#fff;
+    line-height:28px;
+    text-align:center;
+}
+
+.step-list li:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:13px;
+    top:30px;
+    width:2px;
+    height:calc(100% - 16px);
+    background:linear-gradient(
+        to bottom,
+        rgba(155,53,232,.5),
+        transparent
+    );
+}
+
+.step-list li:last-child{
+    padding-bottom:0;
+}
+
+.optional-tag{
+    display:inline-block;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:2px 8px;
+    border-radius:999px;
+    background:rgba(180,140,255,.15);
+    border:1px solid rgba(180,140,255,.30);
+    color:var(--text-low);
+    margin-left:8px;
+    vertical-align:middle;
+}
 
 ::-webkit-scrollbar{
     width:8px;
@@ -373,10 +496,6 @@ tr:last-child  td:last-child { border-radius:0 0 8px 0; }
 ::-webkit-scrollbar-thumb:hover{
     background:var(--accent);
 }
-
-/* =============================================
-   MOBILE
-============================================= */
 
 @media(max-width:768px){
 
@@ -420,51 +539,138 @@ tr:last-child  td:last-child { border-radius:0 0 8px 0; }
     </div>
 
     <div class="section">
+        <h2>コンテスト概要</h2>
+        <table>
+            <tr>
+                <th>テーマ</th>
+                <td>INZONE</td>
+            </tr>
+            <tr>
+                <th>応募期間</th>
+                <td>7月初旬〜9月末</td>
+            </tr>
+            <tr>
+                <th>対象</th>
+                <td>日本国内の大学・大学院・短期大学・専門学校の学生</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
         <h2>応募形式</h2>
-        <p>以下のいずれかを選択してご応募ください。</p>
-        <ul>
-            <li>ポスター</li>
-            <li>Instagram広告</li>
-            <li>X広告</li>
-            <li>YouTubeショート広告</li>
-        </ul>
+        <p>以下のいずれかの部門を選択してご応募ください。</p>
+
+        <div class="format-container">
+            <div class="division-label">広告クリエイティブ部門</div>
+            <ul class="spec-list">
+                <li>ポスター</li>
+                <li>Instagram広告</li>
+                <li>X広告</li>
+            </ul>
+        </div>
+
+        <div class="format-container">
+            <div class="division-label">ショート動画部門</div>
+            <ul class="spec-list">
+                <li>YouTubeショート広告</li>
+            </ul>
+        </div>
+
+        <div class="format-container">
+            <div class="division-label">SNS投稿部門</div>
+            <ul class="spec-list">
+                <li>Instagram投稿</li>
+                <li>X（旧Twitter）投稿</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>コンテスト応募方法</h2>
+
+        <div class="format-container">
+            <div class="division-label">応募ステップ</div>
+            <ol class="step-list">
+                <li>コンテストサイトからエントリーする</li>
+                <li>作品を制作する</li>
+                <li>制作過程や制作の様子を <strong>「#INZONECreativeChallenge」</strong> を付けてXまたはInstagramに自由に投稿する<span class="optional-tag">任意</span></li>
+                <li>完成した作品を <strong>「#INZONECreativeChallenge」</strong> を付けてXまたはInstagramに投稿する</li>
+                <li>応募フォームから作品投稿URL・作品詳細を記入し提出する</li>
+            </ol>
+        </div>
+
+        <div class="format-container">
+            <div class="division-label">補足</div>
+            <ul class="spec-list">
+                <li>制作過程の投稿や作品への思い、制作の裏側などを発信した応募者は <span class="alert-text">「SNS投稿賞」</span> の審査対象となる。</li>
+                <li>SNS投稿賞は、フォロワー数や「いいね」数だけでなく、発信内容の独創性や企画への貢献度、作品への理解の深さを総合的に評価する。</li>
+            </ul>
+        </div>
     </div>
 
     <div class="section">
         <h2>提出規格</h2>
 
         <div class="format-container">
-            <div class="format-title">ポスター</div>
-            <ul class="spec-list">
-                <li>A3縦</li>
-                <li>RGB形式</li>
-                <li>PNGまたはJPEG</li>
-            </ul>
+            <div class="division-label">広告クリエイティブ部門</div>
+
+            <div class="format-item">
+                <div class="format-title">ポスター</div>
+                <ul class="spec-list">
+                    <li>A3縦（推奨）</li>
+                    <li>RGB形式</li>
+                    <li>PNGまたはJPEG</li>
+                </ul>
+            </div>
+
+            <div class="format-item">
+                <div class="format-title">Instagram広告</div>
+                <ul class="spec-list">
+                    <li>1080 × 1350px（推奨）</li>
+                    <li>PNGまたはJPEG</li>
+                </ul>
+            </div>
+
+            <div class="format-item">
+                <div class="format-title">X広告</div>
+                <ul class="spec-list">
+                    <li>1600 × 900px（推奨）</li>
+                    <li>PNGまたはJPEG</li>
+                </ul>
+            </div>
         </div>
 
         <div class="format-container">
-            <div class="format-title">Instagram広告</div>
-            <ul class="spec-list">
-                <li>1080 × 1350px</li>
-                <li>PNGまたはJPEG</li>
-            </ul>
+            <div class="division-label">ショート動画部門</div>
+
+            <div class="format-item">
+                <div class="format-title">YouTubeショート広告</div>
+                <ul class="spec-list">
+                    <li>6〜15秒</li>
+                    <li>縦長（9:16）または正方形（1:1）</li>
+                    <li>1080 × 1920px（推奨）</li>
+                </ul>
+            </div>
         </div>
 
         <div class="format-container">
-            <div class="format-title">X広告</div>
-            <ul class="spec-list">
-                <li>1600 × 900px（推奨）</li>
-                <li>PNGまたはJPEG</li>
-            </ul>
-        </div>
+            <div class="division-label">SNS投稿部門</div>
 
-        <div class="format-container">
-            <div class="format-title">YouTubeショート広告</div>
-            <ul class="spec-list">
-                <li>最大3分まで（15〜60秒推奨）</li>
-                <li>縦長（9:16）または正方形（1:1）</li>
-                <li>1080 × 1920px（推奨）</li>
-            </ul>
+            <div class="format-item">
+                <div class="format-title">Instagram投稿</div>
+                <ul class="spec-list">
+                    <li>1080 × 1080px または 1080 × 1350px（推奨）</li>
+                    <li>PNGまたはJPEG</li>
+                </ul>
+            </div>
+
+            <div class="format-item">
+                <div class="format-title">X（旧Twitter）投稿</div>
+                <ul class="spec-list">
+                    <li>1600 × 900px（推奨）</li>
+                    <li>PNGまたはJPEG</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -498,6 +704,62 @@ tr:last-child  td:last-child { border-radius:0 0 8px 0; }
                 <td>デザインとしての完成度</td>
             </tr>
         </table>
+    </div>
+
+    <div class="section">
+        <h2>受賞特典</h2>
+
+        <div class="award-container">
+            <div class="award-badge">
+                <span class="award-badge-first">最優秀賞</span>
+            </div>
+            <ul class="spec-list">
+                <li>賞金 15万円</li>
+                <li>INZONE Buds</li>
+                <li>Sony Store展示・公式SNS掲載</li>
+            </ul>
+        </div>
+
+        <div class="award-container">
+            <div class="award-badge">
+                <span class="award-badge-division">広告クリエイティブ部門優勝</span>
+            </div>
+            <ul class="spec-list">
+                <li>賞金 5万円</li>
+                <li>INZONE E9</li>
+                <li>公式SNS掲載</li>
+            </ul>
+        </div>
+
+        <div class="award-container">
+            <div class="award-badge">
+                <span class="award-badge-division">ショート動画部門優勝</span>
+            </div>
+            <ul class="spec-list">
+                <li>賞金 5万円</li>
+                <li>INZONE E9</li>
+                <li>公式SNS掲載</li>
+            </ul>
+        </div>
+
+        <div class="award-container">
+            <div class="award-badge">
+                <span class="award-badge-division">SNS投稿部門優勝</span>
+            </div>
+            <ul class="spec-list">
+                <li>賞金 2万円</li>
+                <li>Sony Storeクーポン</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>制作イメージ例</h2>
+        <p>以下は参考用のビジュアルイメージです。応募作品とは関係ありません。</p>
+        <div class="award-example" style="margin-top:20px;max-width:480px;">
+            <img src="images/image1.png" alt="制作イメージ例">
+            <p class="award-example-caption">©Sony / INZONE — 参考用イメージ（応募作品とは関係ありません）</p>
+        </div>
     </div>
 
 </body>
